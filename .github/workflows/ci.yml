@@ -32,6 +32,8 @@ jobs:
           uvicorn main:app --host 127.0.0.1 --port 8000 &
           sleep 5
           curl -f http://127.0.0.1:8000/ || (echo 'FastAPI not running!' && exit 1)
+      - name: Write Firebase credentials
+        run: echo "${{ secrets.FIREBASE_CREDENTIALS }}" > app/coffeepoint2.json
 
   frontend-test:
     runs-on: ubuntu-latest

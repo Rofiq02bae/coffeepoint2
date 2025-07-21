@@ -12,7 +12,6 @@ __pycache__/
 # Node
 node_modules/
 # Python
-serviceAccountKey.json
 # Mac
 .DS_Store
 # Log
@@ -27,3 +26,5 @@ coffeepoint2.json
 coffeepoint2.json
 # FastAPI
 *.db
+# Firebase
+app/coffeepoint2.json
