@@ -34,11 +34,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run FastAPI check (you can modify this)
+      - name: Generate firebase credentials file
+        env:
+          FIREBASE_CREDENTIALS: ${{ secrets.FIREBASE_CREDENTIALS }}
         run: |
-          uvicorn main:app --reload --host 0.0.0.0 --port 8000
+          echo "$FIREBASE_CREDENTIALS" > coffeepoint2.json
+
+      - name: Run FastAPI check (optional)
+        run: |
           echo "Backend check complete."
-          # Bisa diganti dengan: pytest, uvicorn --check, dll
+          # Gunakan ini hanya jika kamu ingin menjalankan FastAPI saat CI:
+          # uvicorn main:app --host 0.0.0.0 --port 8000
+          # Gunakan pytest atau sejenisnya untuk testing sebenarnya
 
   frontend:
     name: Frontend - React CI
