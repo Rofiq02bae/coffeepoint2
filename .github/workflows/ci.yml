@@ -19,7 +19,7 @@ jobs:
     if: github.ref == 'refs/heads/backend' || github.ref == 'refs/heads/main'
     defaults:
       run:
-        working-directory: ./backend
+        working-directory: ./app
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -36,6 +36,7 @@ jobs:
 
       - name: Run FastAPI check (you can modify this)
         run: |
+          uvicorn main:app --reload --host 0.0.0.0 --port 8000
           echo "Backend check complete."
           # Bisa diganti dengan: pytest, uvicorn --check, dll
 
