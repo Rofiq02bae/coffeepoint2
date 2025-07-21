@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+firebase-admin
+qrcode
+python-dotenv
+pillow
+pydantic
+httpx
+sqlalchemy
+alembic
+psycopg2-binary
+passlib[bcrypt]
+python-multipart
+redis

@@ -1,7 +1,0 @@
-fastapi
-uvicorn
-firebase-admin
-qrcode
-python-dotenv
-pillow
-pydantic
