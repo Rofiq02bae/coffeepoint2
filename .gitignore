@@ -1,0 +1,29 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.env.*
+*.sqlite3
+*.db
+# VSCode
+.vscode/
+# Node
+node_modules/
+# Python
+serviceAccountKey.json
+# Mac
+.DS_Store
+# Log
+*.log
+# Test
+.coverage
+htmlcov/
+# React build
+frontend/build/
+coffeepoint2.json
+# CoffeePoint
+coffeepoint2.json
+# FastAPI
+*.db
