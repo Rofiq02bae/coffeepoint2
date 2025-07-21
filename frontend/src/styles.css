@@ -1,0 +1,27 @@
+.container {
+  max-width: 400px;
+  margin: auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+input {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+button {
+  padding: 0.6rem 1.2rem;
+  background-color: #3f3;
+  border: none;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.receipt {
+  margin-top: 2rem;
+  border-top: 1px solid #ccc;
+  padding-top: 1rem;
+}
