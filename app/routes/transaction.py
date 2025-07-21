@@ -1,8 +1,8 @@
 from fastapi import APIRouter
-from app.models.transaction import Transaction
-from app.firebase import db
-from app.services.receipt_manager import generate_receipt
-from app.services.qrcode_manager import generate_qr
+from models.transaction import Transaction
+from firebase import db
+from services.receipt_manager import generate_receipt
+from services.qrcode_manager import generate_qr
 
 router = APIRouter()
 

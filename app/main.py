@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routes import transaction
+from routes import transaction
 
 app = FastAPI(title="Coffeepoint API")
 
