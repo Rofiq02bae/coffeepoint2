@@ -1,8 +1,0 @@
-{
-  "name": "n8n Codespace Dev",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
-  "forwardPorts": [5678],
-  "postCreateCommand": "echo 'Ready to automate!'"
-}

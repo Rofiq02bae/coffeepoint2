@@ -1,0 +1,10 @@
+/workspaces/wa-bot/
+  backend/
+    main.py
+    models/
+      user.py
+      transaction.py
+    managers/
+      qr_manager.py
+      receipt_manager.py
+    serviceAccountKey.json  # (isi sendiri dari Firebase Console)
