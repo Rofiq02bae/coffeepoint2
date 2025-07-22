@@ -1,9 +1,11 @@
 import firebase_admin
-from firebase_admin import credentials, firestore
+from firebase_admin import credentials
+import base64
+import json
 import os
 
-if not firebase_admin._apps:
-    cred = credentials.Certificate("coffeepoint2.json")
-    firebase_admin.initialize_app(cred)
+cred_json = base64.b64decode(os.getenv("FIREBASE_CREDENTIALS")).decode("utf-8")
+cred_dict = json.loads(cred_json)
+cred = credentials.Certificate(cred_dict)
 
-db = firestore.client()
+firebase_admin.initialize_app(cred)
