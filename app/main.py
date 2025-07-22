@@ -1,56 +1,25 @@
-# from fastapi import FastAPI
-# from routes import transaction
-
-# app = FastAPI(title="Coffeepoint API")
-
-# app.include_router(transaction.router, prefix="/transaction", tags=["Transaction"])
-
-# @app.get("/")
-# def read_root():
-#     return {"message": "Coffeepoint Backend is running!"}
-# import firebase_admin
-# from firebase_admin import credentials, firestore
-# import os
-# import base64
-# from fastapi import FastAPI
-
-# app = FastAPI()
-
-# cred_base64 = os.getenv("FIREBASE_CREDENTIALS")
-
-# if cred_base64:
-#     with open("coffeepoint.json", "wb") as f:
-#         f.write(base64.b64decode(cred_base64))
-
-# if not firebase_admin._apps:
-#     cred = credentials.Certificate("coffeepoint2.json")
-#     firebase_admin.initialize_app(cred)
-
-# db = firestore.client()
-
-# @app.get("/")
-# def read_root():
-#     return {"message": "Hello from Coffeepoint API!"}
-import firebase_admin
-from firebase_admin import credentials, firestore
-import os
-import base64
 from fastapi import FastAPI
+from supabase import create_client, Client
+import os
 
 app = FastAPI()
 
-cred_base64 = os.getenv("FIREBASE_CREDENTIAL")
+SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 
-if cred_base64:
-    with open("coffeepoint.json", "wb") as f:
-        f.write(base64.b64decode(cred_base64))
-
-if not firebase_admin._apps:
-    cred = credentials.Certificate("coffeepoint.json")  # ✅ ini diperbaiki
-    firebase_admin.initialize_app(cred)
-
-db = firestore.client()
+supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 @app.get("/")
 def read_root():
-    return {"message": "Hello from Coffeepoint API!"}
+    return {"message": "Hello from Coffeepoint + Supabase"}
+
+@app.post("/user/{name}")
+def create_user(name: str):
+    data = {"name": name, "points": 0}
+    res = supabase.table("users").insert(data).execute()
+    return res.data
+
+@app.get("/users")
+def get_users():
+    res = supabase.table("users").select("*").execute()
+    return res.data

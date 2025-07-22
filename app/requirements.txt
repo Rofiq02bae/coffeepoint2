@@ -1,6 +1,6 @@
 fastapi
 uvicorn
-firebase-admin
+supabase
 qrcode
 python-dotenv
 pillow
@@ -9,3 +9,4 @@ httpx
 sqlalchemy
 alembic
 psycopg2-binary
+psycopg2
